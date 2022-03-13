@@ -1,0 +1,256 @@
+*{
+    box-sizing: border-box;
+padding:0;
+margin:0;
+}
+
+body{
+
+font-family: Arial, serif;
+font-size: 17px;
+color: rgb(7, 6, 6);
+/* This is  for spacing between text lines in <P/> e.g */
+/* line-height: 1.4; */
+}
+
+header li,a,button{
+
+    color:black;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#header1{
+   /* resource a followed for nav bar*/
+/* https://www.youtube.com/watch?v=PwWHL3RyQgk  */
+
+    /* ! div cannot be displayed as flex */ 
+    display:flex;
+    /* flex-end will move it to the left, flex-start will ush them all to the right, space-between will center the menu*/
+    justify-content:flex-start;
+    align-items: center;
+    /* 30px on top & bottom , 10% of the size*/
+padding: 30px 10%;
+flex-shrink: calc();
+flex-grow: calc();
+/* header backgroun image I struggled a little bit */
+/*background-image:url(Images/img2.jpg);*/
+/*using viewport (vp) to fir any device screen 
+height: 50VH;
+width: 100vw;
+*/
+}
+
+/* for the <a> links in the navbar this is for the <ul> in particular*/ 
+.nav_links{
+/* to remove bullet point from the list items*/
+    list-style: none;
+
+}
+
+.nav_links li{
+/* display them side by side  */
+display: inline-block;
+/* 0 for top & bottom 20 for left & right */  
+padding: 0px 20px;
+
+}
+
+.nav_links a{
+
+    transition: all 0.3s ease 0s;
+
+}
+
+.nav_links a:hover{
+color:rgb(2, 97, 134);
+}
+
+button {
+padding: 9px 25px;
+background-color: rgb(12, 38, 184);
+color: aliceblue;
+border: none;
+border-radius: 50px;
+/* cursor will turn into a hand*/
+cursor: pointer;
+transition: all 0.3s ease 0s;
+font-size:14px;
+text-align: center;
+}
+
+button:hover{
+
+    background-color:rgb(39, 65, 211);
+}
+
+#header2{
+/* resource that helped me https://www.youtube.com/watch?v=hVdTQWASliE*/
+background-image:url(Images/img2.jpg);
+/* to diplay all the image properly not with 100% zoom in*/
+background-size: cover;
+background-position: center;
+/*using viewport (vp) to fir any device screen */
+height: 100vh;
+width: 100vw;
+line-height:1.7;
+margin: 0;
+padding-top: 150;
+padding-left: 20;
+display:flex;
+flex-direction: column;
+justify-content:flex-start;
+color:aliceblue;
+}
+
+/* this is to align the services cards in the center of the page & make space between it & header2 tag */
+
+.container{
+
+display:flex;
+/* this is to center them at (x,y) = (0,0) center of height & width*/
+align-items: center;
+justify-content: center;
+/* make space between it & header2 tag */
+height: 80vh;
+}
+
+/* this is a grid that contains 3 cards*/
+.services{
+
+display: grid;
+grid-template-columns: repeat(3,1fr);
+width:900px;
+gap:20px;
+}
+
+/* each card general properties*/
+.card{
+
+ background-color: rgb(255, 255, 255);
+border-radius: 10px;
+/* */
+box-shadow: 0 2px 20px rgba(0,0,0,0.1) ;
+/* to make the edges round*/
+overflow: hidden;
+width: 300px ;
+height: 300px;
+
+}
+.card-header img{
+width: 100%;
+height: 60px;
+object-fit:cover;
+
+}
+
+/* card content (p,button,a,)*/
+.card-body{
+
+    display:flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 30px;
+gap: 30px;
+
+}
+
+/* services tags (RPA,...) which has h4*/
+.tag{
+
+    background-color:aliceblue;
+border-radius: 50px;
+margin:0px;
+padding: 2px 2px;
+color: aliceblue;
+width: 60px;
+text-align: center;
+}
+
+.tag-blue{
+
+background-color: blue;
+
+}
+.tag-red{
+
+    background-color: rgb(255, 0, 64);
+
+}
+
+.tag-yellow{
+
+    background-color: rgb(255, 153, 0);
+
+    
+}
+.form-container{
+
+background-color: rgb(54, 54, 235);
+padding:50px;
+margin:0;
+}
+.contact-form{
+  background-color: white;
+   box-shadow: 0 2px 20px rgba(0,0,0,0.1) ;
+   border-radius: 30px;
+   overflow: hidden;
+   /* to make the edges round*/
+   width: 600px ;
+   height: 550px;
+   align-self: center;
+   margin-left: 250px;
+   }
+
+   .contact-form > *{
+padding:1em;
+   }
+
+   form{
+display:grid;
+grid-template-columns: 1fr 1fr; 
+gap:20px;
+   }
+   form p{
+margin:0px;
+   }
+/* contact form style */
+
+form .full{
+
+    grid-column: 1/3;
+
+}
+form, button,input,textarea{
+width: 100%;
+padding:1em;
+
+}
+
+/* footer*/
+
+footer{
+display:flex;
+justify-content:space-between;
+align-items: center;
+padding: 30px 10%;
+background-color: white;
+color:black;
+list-style: none;
+
+}
+
+footer li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 20px;
+}
+@media (max-width=940px){
+/* it supposed to work but it is not working, what it actually does is if the screen width is less than 940px the items will stack under each other in one column*/
+.services{
+grid-template-columns:1fr;
+justify-items: center;
+}
+}
+
