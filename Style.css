@@ -30,10 +30,9 @@ header li,a,button{
     /* flex-end will move it to the left, flex-start will ush them all to the right, space-between will center the menu*/
     justify-content:flex-start;
     align-items: center;
+    flex-wrap: wrap;
     /* 30px on top & bottom , 10% of the size*/
 padding: 30px 10%;
-flex-shrink: calc();
-flex-grow: calc();
 /* header backgroun image I struggled a little bit */
 /*background-image:url(Images/img2.jpg);*/
 /*using viewport (vp) to fir any device screen 
@@ -85,81 +84,69 @@ button:hover{
     background-color:rgb(39, 65, 211);
 }
 
-#header2{
+#banner{
 /* resource that helped me https://www.youtube.com/watch?v=hVdTQWASliE*/
+display:flex;
+flex-direction: column;
+justify-content:center;
+align-items:flex-start;
+flex-wrap: wrap;
+font-size: large;
+color:aliceblue;
 background-image:url(Images/img2.jpg);
 /* to diplay all the image properly not with 100% zoom in*/
 background-size: cover;
-background-position: center;
+background-position:inherit;
 /*using viewport (vp) to fir any device screen */
 height: 100vh;
 width: 100vw;
 line-height:1.7;
 margin: 0;
-padding-top: 150;
-padding-left: 20;
-display:flex;
-flex-direction: column;
-justify-content:flex-start;
-color:aliceblue;
+padding:1.5em;
 }
 
-/* this is to align the services cards in the center of the page & make space between it & header2 tag */
 
-.container{
-
-display:flex;
-/* this is to center them at (x,y) = (0,0) center of height & width*/
-align-items: center;
-justify-content: center;
-/* make space between it & header2 tag */
-height: 80vh;
-}
-
-/* this is a grid that contains 3 cards*/
+/* this is a div that contains 3 cards*/
 .services{
-
-display: grid;
-grid-template-columns: repeat(3,1fr);
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
 width:900px;
 gap:20px;
+height: 80vh;
+/* how to make all card in the center without having to use the padding?*/
+padding-left: 5em;
 }
 
 /* each card general properties*/
 .card{
-
- background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 border-radius: 10px;
-/* */
 box-shadow: 0 2px 20px rgba(0,0,0,0.1) ;
 /* to make the edges round*/
 overflow: hidden;
 width: 300px ;
-height: 300px;
+height: 300px;}
 
+.card img{
+    width: 100%;
+    height: 60px;
+    object-fit:cover;
 }
-.card-header img{
-width: 100%;
-height: 60px;
-object-fit:cover;
-
-}
-
 /* card content (p,button,a,)*/
 .card-body{
-
     display:flex;
     flex-direction: column;
     align-items:flex-start;
+    flex-wrap: wrap;
     padding: 30px;
-gap: 30px;
-
-}
+    gap: 30px;}
 
 /* services tags (RPA,...) which has h4*/
 .tag{
 
-    background-color:aliceblue;
+background-color:aliceblue;
 border-radius: 50px;
 margin:0px;
 padding: 2px 2px;
@@ -186,10 +173,13 @@ background-color: blue;
     
 }
 .form-container{
-
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 background-color: rgb(54, 54, 235);
-padding:50px;
-margin:0;
+background-size: cover;
+flex-wrap: wrap;
 }
 .contact-form{
   background-color: white;
@@ -199,13 +189,14 @@ margin:0;
    /* to make the edges round*/
    width: 600px ;
    height: 550px;
-   align-self: center;
-   margin-left: 250px;
+   justify-content: center;
+align-items: center;
+flex-wrap: wrap;
    }
 
    .contact-form > *{
-padding:1em;
-   }
+    padding:1em;
+       }
 
    form{
 display:grid;
@@ -246,11 +237,18 @@ footer li{
     display: inline-block;
     padding: 0px 20px;
 }
-@media (max-width=940px){
+@media (max-width=740px){
 /* it supposed to work but it is not working, what it actually does is if the screen width is less than 940px the items will stack under each other in one column*/
 .services{
-grid-template-columns:1fr;
-justify-items: center;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+
 }
+.footer,.header{
+    display:flex;
+    flex-direction: column;
+}
+
 }
 
